@@ -1,0 +1,44 @@
+import os
+from time import sleep
+
+def mostrarMenuPrincipal():
+    print(f'='*60)
+    print(f'MENU PRINCIPAL'.center(60))
+    print(f'='*60)
+    print(f'\033[34m1 - Ver pessoas cadastradas')
+    print(f'2 - Cadastrar pessoas')
+    print(f'3 - Sair do sistema\033[m')
+    print(f'Sua opção: ')
+
+def escolherOpcao():
+    try:
+        opc = int(input())
+    except(Exception):
+        print(f'\033[34mERRO! Digite um um número válido\033[0m')
+        sleep(4)
+    else:
+        if opc == 1:
+            verPessoasCadastradas()
+        elif opc == 2:    
+            cadastrarPessoa()
+        elif opc == 3:
+            print(f'Até mais!')
+            return 0
+        else:
+            print(f'\033[31Opção inválida\033[0m') 
+            sleep(4)
+
+def verPessoasCadastradas():
+    print(f'vendo pessoas')
+
+def cadastrarPessoa():
+    print(f'cadastrando pessoa')
+
+if __name__ =='__main__'  :
+    while True:
+        os.system('cls')
+        mostrarMenuPrincipal()
+        opc=escolherOpcao()
+        if opc == 0:
+            break
+    
