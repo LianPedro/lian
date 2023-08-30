@@ -1,0 +1,247 @@
+class Bola:
+    def __init__(self, cor, circunferencia, material):
+        self.cor = cor
+        self.circunferencia = circunferencia
+        self.material = material
+    
+    def trocaCor(self, nova_cor):
+        self.cor = nova_cor
+    
+    def mostraCor(self):
+        return self.cor
+class Quadrado:
+    def __init__(self, lado):
+        self.lado = lado
+    
+    def mudarLado(self, novo_lado):
+        self.lado = novo_lado
+    
+    def retornarLado(self):
+        return self.lado
+    
+    def calcularArea(self):
+        return self.lado ** 2
+class Retangulo:
+    def __init__(self, ladoA, ladoB):
+        self.ladoA = ladoA
+        self.ladoB = ladoB
+    
+    def mudarLados(self, novo_ladoA, novo_ladoB):
+        self.ladoA = novo_ladoA
+        self.ladoB = novo_ladoB
+    
+    def retornarLados(self):
+        return self.ladoA, self.ladoB
+    
+    def calcularArea(self):
+        return self.ladoA * self.ladoB
+    
+    def calcularPerimetro(self):
+        return 2 * (self.ladoA + self.ladoB)
+def main():
+    comprimento = float(input("Informe o comprimento do local: "))
+    largura = float(input("Informe a largura do local: "))
+    
+    local = Retangulo(comprimento, largura)
+    
+    area_total = local.calcularArea()
+    perimetro_total = local.calcularPerimetro()
+    
+    tamanho_piso = float(input("Informe o tamanho do piso: "))
+    tamanho_rodape = float(input("Informe o tamanho do rodapé: "))
+    
+    area_piso = tamanho_piso ** 2
+    area_rodape = tamanho_rodape * perimetro_total
+    
+    quantidade_pisos = area_total / area_piso
+    quantidade_rodapes = perimetro_total / tamanho_rodape
+    
+    print(f"Quantidade de pisos necessários: {quantidade_pisos:.2f}")
+    print(f"Quantidade de rodapés necessários: {quantidade_rodapes:.2f}")
+
+if __name__ == "__main__":
+    main()
+class Pessoa:
+    def __init__(self, nome, idade, peso, altura):
+        self.nome = nome
+        self.idade = idade
+        self.peso = peso
+        self.altura = altura
+    
+    def envelhecer(self):
+        self.idade += 1
+        if self.idade < 21:
+            self.altura += 0.5
+    
+    def engordar(self, peso):
+        self.peso += peso
+    
+    def emagrecer(self, peso):
+        self.peso -= peso
+    
+    def crescer(self, altura):
+        self.altura += altura
+class ContaCorrente:
+    def __init__(self, numero_conta, nome_correntista, saldo=0):
+        self.numero_conta = numero_conta
+        self.nome_correntista = nome_correntista
+        self.saldo = saldo
+    
+    def alterarNome(self, novo_nome):
+        self.nome_correntista = novo_nome
+    
+    def deposito(self, valor):
+        self.saldo += valor
+    
+    def saque(self, valor):
+        if valor <= self.saldo:
+            self.saldo -= valor
+        else:
+            print("Saldo insuficiente.")
+class TV:
+    def __init__(self):
+        self.canal = 1
+        self.volume = 50
+    
+    def alterarCanal(self, novo_canal):
+        if 1 <= novo_canal <= 100:
+            self.canal = novo_canal
+    
+    def aumentarVolume(self):
+        if self.volume < 100:
+            self.volume += 1
+    
+    def diminuirVolume(self):
+        if self.volume > 0:
+            self.volume -= 1
+class BichinhoVirtual:
+    def __init__(self, nome, fome, saude, idade):
+        self.nome = nome
+        self.fome = fome
+        self.saude = saude
+        self.idade = idade
+    
+    def alterarNome(self, novo_nome):
+        self.nome = novo_nome
+    
+    def alterarFome(self, nova_fome):
+        self.fome = nova_fome
+    
+    def alterarSaude(self, nova_saude):
+        self.saude = nova_saude
+    
+    def alterarIdade(self, nova_idade):
+        self.idade = nova_idade
+    
+    def retornarNome(self):
+        return self.nome
+    
+    def retornarFome(self):
+        return self.fome
+    
+    def retornarSaude(self):
+        return self.saude
+    
+    def retornarIdade(self):
+        return self.idade
+class Macaco:
+    def __init__(self, nome):
+        self.nome = nome
+        self.bucho = []
+    
+    def comer(self, alimento):
+        self.bucho.append(alimento)
+    
+    def verBucho(self):
+        return self.bucho
+    
+    def digerir(self):
+        self.bucho = []
+
+# Criando dois macacos
+macaco1 = Macaco("Macaco A")
+macaco2 = Macaco("Macaco B")
+
+# Alimentando os macacos
+macaco1.comer("Banana")
+macaco1.comer("Maçã")
+macaco2.comer("Cenoura")
+
+# Verificando o conteúdo do estômago
+print(f"Bucho do {macaco1.nome}: {macaco1.verBucho()}")
+print(f"Bucho do {macaco2.nome}: {macaco2.verBucho()}")
+
+# Digerindo
+macaco1.digerir()
+macaco2.digerir()
+
+# Verificando o conteúdo do estômago após a digestão
+print(f"Bucho do {macaco1.nome} após a digestão: {macaco1.verBucho()}")
+print(f"Bucho do {macaco2.nome} após a digestão: {macaco2.verBucho()}")
+class Ponto:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    
+    def imprimir(self):
+        print(f"({self.x}, {self.y})")
+
+class Retangulo:
+    def __init__(self, ponto_inicial, largura, altura):
+        self.ponto_inicial = ponto_inicial
+        self.largura = largura
+        self.altura = altura
+    
+    def encontrarCentro(self):
+        centro_x = self.ponto_inicial.x + self.largura / 2
+        centro_y = self.ponto_inicial.y + self.altura / 2
+        return Ponto(centro_x, centro_y)
+
+# Criando um ponto e um retângulo
+ponto_inicial = Ponto(1, 1)
+retangulo = Retangulo(ponto_inicial, 5, 3)
+
+# Imprimindo o centro do retângulo
+centro = retangulo.encontrarCentro()
+print("Centro do retângulo:")
+centro.imprimir()
+class BombaCombustivel:
+    def __init__(self, tipo_combustivel, valor_litro, quantidade_combustivel):
+        self.tipo_combustivel = tipo_combustivel
+        self.valor_litro = valor_litro
+        self.quantidade_combustivel = quantidade_combustivel
+    
+    def abastecerPorValor(self, valor):
+        quantidade_abastecida = valor / self.valor_litro
+        self.quantidade_combustivel -= quantidade_abastecida
+        return quantidade_abastecida
+    
+    def abastecerPorLitro(self, litros):
+        valor_a_pagar = litros * self.valor_litro
+        self.quantidade_combustivel -= litros
+        return valor_a_pagar
+    
+    def alterarValor(self, novo_valor_litro):
+        self.valor_litro = novo_valor_litro
+    
+    def alterarCombustivel(self, novo_tipo_combustivel):
+        self.tipo_combustivel = novo_tipo_combustivel
+    
+    def alterarQuantidadeCombustivel(self, nova_quantidade_combustivel):
+        self.quantidade_combustivel = nova_quantidade_combustivel
+
+# Criando uma bomba de combustível
+bomba = BombaCombustivel("Gasolina", 4.5, 1000)
+
+# Abastecendo por valor
+valor_pago = 50
+litros_abastecidos = bomba.abastecerPorValor(valor_pago)
+print(f"Foram abastecidos {litros_abastecidos:.2f} litros. Saldo de combustível: {bomba.quantidade_combustivel:.2f} litros")
+
+# Alterando o valor do litro
+bomba.alterarValor(4.7)
+
+# Abastecendo por litro
+litros_abastecidos = 30
+valor_a_pagar = bomba.abastecerPorLitro(litros_abastecidos)
+print(f"Valor a pagar: R${valor_a_pagar:.2f}. Saldo de combustível: {bomba.quantidade_combustivel:.2f} litros")
